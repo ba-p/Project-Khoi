@@ -1,0 +1,54 @@
+.content{
+    min-height: 70vh;
+    width: 100%;
+    background-color: var(--cl3);
+}
+.table{
+    width: 80%;
+    margin: 20px auto;
+}
+.discount{
+    width: 70%;
+    height: 50px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 10px 0;
+    border: none;
+    padding-left: 20px;
+}
+.line{
+    height: 2px;
+    background-color: rgb(97, 97, 97);
+    width: 95%;
+    margin: 0 auto;
+}
+.footer{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding: 0 5%;
+    font-size: 20px;
+    color: var(--cl2);
+    font-weight: bold;
+}
+.voucher{
+    border: none;
+    height: 30px;
+    border-radius: var(--radius);
+    padding: 0 10px;
+}
+.orderBtn{
+    margin: 20px 0 0 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cl2);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    width: 200px;
+    border-radius: var(--radius);
+    height: 40px;
+}

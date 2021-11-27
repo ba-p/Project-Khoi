@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+
 
 .App-logo {
   height: 40vmin;
@@ -35,4 +33,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+.bg1{
+  background-color: #ffe1a8;
+}
+.bg2{
+  background-color: #060461;
+}
+.bg3{
+  background-color: rgb(231, 231, 231);
+}
+.cl1{
+  color: #060461;
+}
+button{
+  cursor: pointer;
 }
