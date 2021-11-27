@@ -3,18 +3,16 @@ import { connection } from "../../database/mysql";
 
 const router = express.Router();
 
-export const taoCustomer = () => {
-  return router.post(
+export const xemHoaDon = () => {
+  return router.get(
     "/",
     async (req: express.Request, res: express.Response) => {
       try {
-        const { id,name, phone } = req.body;
-        const sql = "call TAOTAIKHOAN (?,?,?)";
-        connection.query(sql, [id,name, phone], (err, result) => {
+        
+        const sql = "call xemhoadon()";
+        connection.query(sql, (err, result) => {
           if (err) throw err;
-          res.json({
-            status: 200,
-          });
+          res.json(result[0]);
         });
       } catch (error) {
         console.log(error);
