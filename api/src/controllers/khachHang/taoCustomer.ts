@@ -8,9 +8,9 @@ export const taoCustomer = () => {
     "/",
     async (req: express.Request, res: express.Response) => {
       try {
-        const { name, phone } = req.body;
-        const sql = "call TAOTAIKHOAN (?, ?)";
-        connection.query(sql, [name, phone], (err, result) => {
+        const { id,name, phone } = req.body;
+        const sql = "call TAOTAIKHOAN (?,?,?)";
+        connection.query(sql, [id,name, phone], (err, result) => {
           if (err) throw err;
           res.json({
             status: 200,
