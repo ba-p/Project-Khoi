@@ -9,11 +9,11 @@ import { updateHang } from '../controllers/khachHang/updateHang';
 import { xoaMonAn } from '../controllers/monAn/xoaMonAn';
 import { xemThongTin } from '../controllers/khachHang/xemThongTin';
 // import { get_all_babers } from "../controllers/Babers/get_all_babers";
-import { checkVoucher } from '../controllers/checkVoucher';
-import { congDiem } from '../controllers/congDiem';
-import { taoCustomer } from '../controllers/taoCustomer';
-import { themRate } from '../controllers/themRate';
-import { updateStatusBill } from '../controllers/updateStatusBill';
+import { checkVoucher } from '../controllers/hoaDon/checkVoucher';
+import { congDiem } from '../controllers/hoaDon/congDiem';
+import { taoCustomer } from '../controllers/khachHang/taoCustomer';
+import { themRate } from '../controllers/hoaDon/themRate';
+import { updateStatusBill } from '../controllers/hoaDon/updateStatusBill';
 
 const app = express();
 
