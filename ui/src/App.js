@@ -9,6 +9,8 @@ import UpdateInvoiceStatus from './UpdateInvoiceStatus/UpdateInvoiceStatus';
 import AddFood from './AddFood/AddFood';
 import AdminLogin from './AdminLogin/AdminLogin';
 import AdminPage from './AdminPage/AdminPage';
+import CustomerInforamtion from './CustomerInformation/CustomerInformation';
+import Voucher from './Voucher/Voucher';
 
 function App() {
   return (
@@ -44,6 +46,14 @@ function App() {
 
         <Routes>
           <Route path="/AdminPage" element={<AdminPage/>}/>
+        </Routes>
+
+        <Routes>
+          <Route path="/CustomerInformation" element={<CustomerInforamtion/>}/>
+        </Routes>
+
+        <Routes>
+          <Route path="/Voucher" element={<Voucher/>}/>
         </Routes>
       </BrowserRouter>
     </div>

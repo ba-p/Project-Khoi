@@ -1,15 +1,14 @@
-import style from './style.module.css'
-const AddFood = () => {
+import style from "./style.module.css"
+const Voucher = () => {
     return (
         <div>
             <div className={style.title}>
-                Chỉnh sửa món ăn
+                Quản lý voucher
             </div>
             <table className={style.table}>
                 <tr style={{ backgroundColor: "var(--cl3)", height: "30px" }}>
-                    <th width="20%">ID MÓN</th>
-                    <th>TÊN MÓN ĂN</th>
-                    <th>ĐƠN GIÁ</th>
+                    <th width="50%">ID VOUCHER</th>
+                    <th>GIẢM</th>
                     <th>{"       "}</th>
                 </tr>
             </table>
@@ -21,4 +20,4 @@ const AddFood = () => {
     );
 }
 
-export default AddFood;
+export default Voucher;

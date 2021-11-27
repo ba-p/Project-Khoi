@@ -25,7 +25,7 @@ const Page1 = () => {
   };
   return (
     <div className="page1">
-      <Link hidden={isPayPage === 4} to="/AdminPage" className="admin-button">
+      <Link hidden={isPayPage} to="/AdminPage" className="admin-button">
         Quản trị viên
       </Link>
       <div className="page1-left">
