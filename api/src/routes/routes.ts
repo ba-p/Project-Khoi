@@ -1,12 +1,20 @@
 import express from "express";
 import { serverInit } from "../config/config";
-// import { get_all_babers } from "../controllers/Babers/get_all_babers";
+import { checkVoucher } from '../controllers/checkVoucher';
+import { congDiem } from '../controllers/congDiem';
+import { taoCustomer } from '../controllers/taoCustomer';
+import { themRate } from '../controllers/themRate';
+import { updateStatusBill } from '../controllers/updateStatusBill';
 
 const app = express();
 
 export const routes = () => {
   serverInit(app);
 
-//   app.use("/api/babers", get_all_babers());
+  app.use("/api/taotaikhoan", taoCustomer());
+  app.use("/api/danhgia", themRate());
+  app.use("/api/checkvoucher", checkVoucher());
+  app.use("/api/updatestatus", updateStatusBill());
+  app.use("/api/congdiem", congDiem());
   // app.use('/api/', fn())
 };
