@@ -1,24 +1,18 @@
 import express from "express";
-import { connection } from "../database/mysql";
+import { connection } from "../../database/mysql";
 
 const router = express.Router();
-
-type Body = {
-  idKh: string;
-  point: number;
-};
-
-export const congDiem = () => {
+export const xoaMonAn = () => {
   return router.post(
     "/",
     async (req: express.Request, res: express.Response) => {
       try {
-        const { data }: { data: Body[] } = req.body;
-        const sql = "call congdiem (?, ?, ?)";
+        const { data }: { data: string[] } = req.body;
         const rs = await Promise.all(
-          data.map((item) => {
+          data.map((id) => {
             return new Promise((resolve, reject) => {
-              connection.query(sql, [item.idKh, item.point], (err, result) => {
+              const sql = "call xoaMonAn (?)";
+              connection.query(sql, [id], function (err, results) {
                 if (err) reject(err);
                 resolve(true);
               });
@@ -26,12 +20,15 @@ export const congDiem = () => {
           })
         );
         if (rs) {
-          res.json({
-            status: 200,
+          res.send({
+            status: "success",
           });
         }
       } catch (error) {
-        console.log(error);
+        res.json({
+          status: 400,
+          body: error,
+        });
       }
     }
   );
