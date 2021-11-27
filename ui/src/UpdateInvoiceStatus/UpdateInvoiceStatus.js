@@ -7,7 +7,7 @@ const UpdateInvoiceStatus = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     (async () => {
-      const response = await axios.get("http://localhost:8080/api/");
+      const response = await axios.get("http://localhost:8080/api/xemhoadon");
       if (response.data) {
         setData(response.data);
       }

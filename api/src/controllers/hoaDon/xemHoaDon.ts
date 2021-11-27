@@ -9,7 +9,7 @@ export const xemHoaDon = () => {
     async (req: express.Request, res: express.Response) => {
       try {
         
-        const sql = "call xemhoadon())";
+        const sql = "call xemhoadon()";
         connection.query(sql, (err, result) => {
           if (err) throw err;
           res.json(result[0]);
