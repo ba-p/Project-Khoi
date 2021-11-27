@@ -4,7 +4,7 @@ import { connection } from "../../database/mysql";
 const router = express.Router();
 
 type Body = {
-  idOrder: string;
+  id: string;
   status: string;
 };
 
@@ -20,7 +20,7 @@ export const updateStatusBill = () => {
             return new Promise((reject, resolve) => {
               connection.query(
                 sql,
-                [item.idOrder, item.status],
+                [item.id, item.status],
                 (err, result) => {
                   if (err) reject(err);
                   resolve(true);
