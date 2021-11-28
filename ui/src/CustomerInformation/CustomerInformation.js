@@ -31,14 +31,14 @@ const CustomerInforamtion = () => {
             return <ThongTin item={item} key={index} />;
           })}
         </table>
-        <div className={style.footer}>
+        {/* <div className={style.footer}>
           <button
             style={{ backgroundColor: "var(--cl3)", marginRight: "10px" }}
           >
             Thêm
           </button>
           <button style={{ backgroundColor: "var(--cl3)" }}>Lưu</button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
