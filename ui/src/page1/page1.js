@@ -25,7 +25,7 @@ const Page1 = () => {
     });
     navigate("/page2", {
       state: {
-        idKh: id,
+        idkh: id,
       },
     });
   };
