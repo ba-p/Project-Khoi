@@ -15,25 +15,16 @@ export const updateStatusBill = () => {
       try {
         const { data }: { data: Body[] } = req.body;
         const sql = "call updatestatus (?, ?)";
-        const rs = await Promise.all(
-          data.map((item) => {
-            return new Promise((reject, resolve) => {
-              connection.query(
-                sql,
-                [item.id, item.status],
-                (err, result) => {
-                  if (err) reject(err);
-                  resolve(true);
-                }
-              );
-            });
-          })
-        );
-        if (rs) {
-            res.json({
-              status: 200,
-            });
-        }
+        console.log(`data`, data);
+        data.map((item) => {
+          connection.query(sql, [item.id, item.status], (err, result) => {
+            if (err) throw err;
+          });
+        });
+
+        res.json({
+          status: 200,
+        });
       } catch (error) {
         console.log(error);
       }
