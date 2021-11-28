@@ -17,7 +17,7 @@ const Page3 = () => {
                     </thead>
 
                     <tbody>
-
+                        
                     </tbody>
 
                 </table>
