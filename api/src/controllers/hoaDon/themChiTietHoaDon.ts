@@ -50,7 +50,12 @@ export const themChiTietHoaDon = () => {
       try {
         const { idorder, idkh, idvoucher, stt, chitiet } = req.body;
         const status = themHoaDon(idorder, idkh, idvoucher, stt, chitiet);
-
+        const sql = "call congdiem (?)"; //idkh
+        connection.query(sql, [idkh], (err) => {
+          if (err) throw err;
+        })
+        const sql2 = 'select '
+        
         status.then((result) => {
           console.log(`result`, result);
           if (result) {
