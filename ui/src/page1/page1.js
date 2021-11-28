@@ -8,9 +8,8 @@ import { v4 } from "uuid";
 import axios from "axios";
 
 const Page1 = () => {
-  let location = useLocation().pathname;
-  let isPayPage = location.includes("page4");
-
+  let location = useLocation();
+  let isPayPage = location.pathname.includes("page4");
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
@@ -31,7 +30,8 @@ const Page1 = () => {
   };
   const handleRate = async (value) => {
     let today = new Date();
-    let idOrder = "tmp1";
+    let idOrder = location.state.idOrder;
+    console.log(idOrder);
     const rs = await axios.post('http://localhost:8080/api/danhgia', {
       idOrder,
       today,
@@ -70,7 +70,7 @@ const Page1 = () => {
           />
 
           <button onClick={handleAddCustomer} className="bg2 page1-button">
-            Tiếp theo
+            {isPayPage?"Đơn hàng khác":"Tiếp theo"}
           </button>
         </div>
         {isPayPage && (

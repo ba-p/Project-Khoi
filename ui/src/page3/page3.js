@@ -11,9 +11,17 @@ const Page3 = () => {
     (acc, item) => acc + item.amount * parseInt(item.gia),
     0
   );
-
   const [voucher, setVoucher] = useState("");
+  const checkVoucher = async (id) => {
+    let res = await axios.post("http://localhost:8080/api/checkvoucher", {idVoucher: id});
+    return res;
+  }
   const handleSubmit = async () => {
+    let checkVoucherRes = await checkVoucher(voucher)
+    if (!checkVoucherRes.data.checked && voucher!=="") {
+      alert("Voucher không hợp lệ");
+      return;
+    }
     const newChitiet = location.state.chitiet.map((item) => {
       return {
         id: item.id,
@@ -34,9 +42,14 @@ const Page3 = () => {
     if (response.status === 200) {
       alert("Thanh toán thành công");
     }
-    navigate("/page4")
+    navigate("/page4", {
+      state: {
+        idOrder: location.state.idorder,
+      },
+    })
 
   };
+  console.log(voucher);
   return (
     <div>
       <h1 style={{ marginLeft: "40px" }}>Thanh toán</h1>

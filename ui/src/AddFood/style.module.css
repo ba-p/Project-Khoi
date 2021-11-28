@@ -28,3 +28,8 @@
     margin: 10px auto;
 
 }
+.modal{
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+}

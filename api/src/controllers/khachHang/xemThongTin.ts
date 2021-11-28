@@ -9,7 +9,7 @@ export const  xemThongTin = () => {
     async (req: express.Request, res: express.Response) => {
       try {
         const { idkh } = req.body;
-        const sql = "select * from khachhang";
+        const sql = "select idkh, tenkh, sdtkh as sdt, hangkh, pointkh, (select sum(landat) from khachhang where sdtkh = sdt) as solan from khachhang group by sdt";
         connection.query(sql, function (err, results) {
           if (err) throw err;
           res.json(results);

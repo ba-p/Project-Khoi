@@ -15,6 +15,8 @@ export const themHoaDon = async (
 ) => {
   const sql = "call themHoaDon (?,?,?,?)";
   const sql1 = "call themDetail (?,?,?)";
+  const sql2 = "call themLanDat (?)"
+  const sql3 = "call tinhTien(?,?)";
   try {
     const rs = connection.query(sql, [idorder, idkh, idvoucher, stt], (err) => {
       if (err) throw err;
@@ -25,8 +27,13 @@ export const themHoaDon = async (
         return true;
       });
     });
-
-    if (rs1) {
+    const rs2 = connection.query(sql2, [ idkh ], (err) => {
+      if (err) throw err;
+    });
+    const rs3 = connection.query(sql3, [ idorder, idvoucher ], (err) => {
+      if (err) throw err;
+    });
+    if (rs3) {
       return true;
     }
 
