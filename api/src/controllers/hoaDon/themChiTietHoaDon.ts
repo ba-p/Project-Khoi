@@ -31,7 +31,7 @@ export const themHoaDon = async (
         chiTiet.map((pchiTiet) =>
         connection.query(
           sql1,
-          [pchiTiet.id, pchiTiet.sl],
+          [pchiTiet.id, pchiTiet.sl, idorder],
           (err) => {
             if (err) reject(err);
             resolve(true);
@@ -69,6 +69,7 @@ export const themChiTietHoaDon = () => {
         );
 
         status.then((result) => {
+          console.log(`result`, result)
           if (result) {
             res.json({
               status: 200,
