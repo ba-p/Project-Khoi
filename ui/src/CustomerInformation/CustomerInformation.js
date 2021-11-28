@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import style from "./style.module.css";
 import axios from "axios";
-import { thongTin } from "./thongTin";
+import { ThongTin } from "./ThongTin";
 
 const CustomerInforamtion = () => {
   const [data, setData] = useState([]);
@@ -20,7 +20,6 @@ const CustomerInforamtion = () => {
         <div className={style.title}>Thông tin khách hàng</div>
         <table className={style.table}>
           <tr style={{ backgroundColor: "var(--cl3)", height: "30px" }}>
-            <th width="20%">ID KHÁCH HÀNG</th>
             <th width="20%">TÊN KHÁCH HÀNG</th>
             <th>SĐT</th>
             <th>LẦN ĐẶT</th>
@@ -29,7 +28,7 @@ const CustomerInforamtion = () => {
             <th>{"       "}</th>
           </tr>
           {data.map((item, index) => {
-            return <thongTin item={item} key={index} />;
+            return <ThongTin item={item} key={index} />;
           })}
         </table>
         <div className={style.footer}>
