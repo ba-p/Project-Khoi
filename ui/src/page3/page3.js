@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import style from "./style.module.css";
 const Page3 = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
   const data = location.state.chitiet;
   const totalPrice = data.reduce(
     (acc, item) => acc + item.amount * parseInt(item.gia),
@@ -29,7 +31,11 @@ const Page3 = () => {
       "http://localhost:8080/api/themChiTietHoaDon",
       dataSubmit
     );
-    console.log(`response`, response);
+    if (response.status === 200) {
+      alert("Thanh toán thành công");
+    }
+    navigate("/page4")
+
   };
   return (
     <div>

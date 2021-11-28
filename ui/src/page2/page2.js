@@ -10,14 +10,14 @@ const Page2 = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const navigate = useNavigate();
   const location = useLocation();
-  const { idKh } = location.state;
+  const { idkh } = location.state;
 
   const handlePay = async () => {
       const newData = data.filter(item => item.amount > 0);
     navigate("/page3", {
       state: {
         idorder: v4(),
-        idKh,
+        idkh,
         stt: "invalid",
         chitiet: newData,
       },
