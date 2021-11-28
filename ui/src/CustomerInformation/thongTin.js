@@ -7,7 +7,7 @@ export const ThongTin = (props) => {
       
         <th>{item.tenkh}</th>
         <th>{item.sdtkh}</th>
-        <th>{0}</th>
+        <th>{item.landat}</th>
         <th>{item.pointkh}</th>
         <th>{item.hangkh}</th>
         <th>{"       "}</th>
