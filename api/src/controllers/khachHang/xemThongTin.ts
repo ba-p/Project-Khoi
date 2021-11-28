@@ -9,10 +9,10 @@ export const  xemThongTin = () => {
     async (req: express.Request, res: express.Response) => {
       try {
         const { idkh } = req.body;
-        const sql = "select idkh, tenkh, sdtkh as sdt, hangkh, pointkh, (select sum(landat) from khachhang where sdtkh = sdt) as solan from khachhang group by sdt";
+        const sql = "call showkh()";
         connection.query(sql, function (err, results) {
           if (err) throw err;
-          res.json(results);
+          res.json(results[0]);
         });
 
         // sql
