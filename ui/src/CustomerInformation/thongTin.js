@@ -6,8 +6,8 @@ export const ThongTin = (props) => {
     <tr style={{ backgroundColor: "#fff", height: "30px" }}>
       
         <th>{item.tenkh}</th>
-        <th>{item.sdtkh}</th>
-        <th>{item.landat}</th>
+        <th>{item.sdt}</th>
+        <th>{item.solan}</th>
         <th>{item.pointkh}</th>
         <th>{item.hangkh}</th>
         <th>{"       "}</th>
