@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import style from "./style.module.css";
 import axios from "axios";
 import { BillItem } from "./BillItem";
+import { Link } from 'react-router-dom';
 
 const UpdateInvoiceStatus = () => {
   const [data, setData] = useState([]);
@@ -51,9 +52,11 @@ const UpdateInvoiceStatus = () => {
         })}
       </table>
       <div className={style.footer}>
-        <button style={{ backgroundColor: "var(--cl2)", color: "white" }}>
+        <Link to='/AdminPage'>
+        <button style={{ backgroundColor: "var(--cl2)", color: "white", marginRight: '20px' }}>
           Trở về
         </button>
+        </Link>
 
         <button
           onClick={handleUpdate}
