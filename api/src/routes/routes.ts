@@ -16,6 +16,7 @@ import { themRate } from '../controllers/hoaDon/themRate';
 import { updateStatusBill } from '../controllers/hoaDon/updateStatusBill';
 import { xemHoaDon } from '../controllers/hoaDon/xemHoaDon';
 import { xemMonAn } from '../controllers/monAn/xemMonAn';
+import { xemVoucher } from '../controllers/hoaDon/xemVoucher';
 
 const app = express();
 
@@ -25,6 +26,7 @@ export const routes = () => {
   app.use("/api/xemThongTin", xemThongTin());
   app.use("/api/xemhoadon", xemHoaDon());
   app.use("/api/xemMonAn", xemMonAn());
+  app.use("/api/xemVoucher", xemVoucher());
 // insert
   app.use("/api/themMonAn", themMonAn());
   app.use("/api/themChiTietHoaDon", themChiTietHoaDon());
