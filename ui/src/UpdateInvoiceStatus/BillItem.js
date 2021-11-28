@@ -24,6 +24,7 @@ export const BillItem = (props) => {
     <tr style={{ backgroundColor: "var(--cl1)", height: "30px" }}>
       <th>{item?.id}</th>
       <th>{item.tenkh}</th>
+      <th>{item.sdt}</th>
       <th>{item.tong}</th>
       <th>
       <select style={{backgroundColor: item.status==="valid"?"#8cff7d":"#d9d9d9"}} onChange={changeStatus}>

@@ -8,10 +8,10 @@ export const xemMonAn = () => {
     "/",
     async (req: express.Request, res: express.Response) => {
       try {
-        const sql = "select idMonan as id, tenMon, gia from monAn";
+        const sql = "call xemmonan ()";
         connection.query(sql, (err, result) => {
           if (err) throw err;
-          res.json(result);
+          res.json(result[0]);
         });
       } catch (error) {
         console.log(error);

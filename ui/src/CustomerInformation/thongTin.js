@@ -19,7 +19,6 @@ export const ThongTin = (props) => {
         <th>{item.tenkh}</th>
         <th>{item.sdt}</th>
         <th>{item.solan}</th>
-        <th>{item.point}</th>
         <th>{hang}</th>
         
     </tr>

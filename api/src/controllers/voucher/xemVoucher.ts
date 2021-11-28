@@ -9,10 +9,10 @@ export const  xemVoucher = () => {
     async (req: express.Request, res: express.Response) => {
       try {
         const { idkh } = req.body;
-        const sql = "select * from voucher";
+        const sql = "call xemvoucher ()";
         connection.query(sql, function (err, results) {
           if (err) throw err;
-          res.json(results);
+          res.json(results[0]);
         });
 
         // sql

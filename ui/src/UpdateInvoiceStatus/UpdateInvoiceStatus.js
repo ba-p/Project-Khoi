@@ -14,7 +14,6 @@ const UpdateInvoiceStatus = () => {
       }
     })();
   }, []);
-
   const updateStatus = (id, status) => {
     setData(
       data.map((item) => {
@@ -41,6 +40,7 @@ const UpdateInvoiceStatus = () => {
         <tr style={{ backgroundColor: "var(--cl3)", height: "30px" }}>
           <th>MÃ HÓA ĐƠN</th>
           <th>KHÁCH HÀNG</th>
+          <th>SỐ ĐIỆN THOẠI</th>
           <th>TỔNG TIỀN</th>
           <th>TRẠNG THÁI</th>
         </tr>

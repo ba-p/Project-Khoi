@@ -37,7 +37,6 @@ export const themHoaDon = async (
     const rs4 = connection.query(sql3, [ idorder, idvoucher ], (err) => {
       if (err) throw err;
     });
-    
     if (rs4) {
       return true;
     }

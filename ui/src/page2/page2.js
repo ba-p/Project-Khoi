@@ -17,7 +17,7 @@ const Page2 = () => {
       const newData = data.filter(item => item.amount > 0);
     navigate("/page3", {
       state: {
-        idorder: v4(),
+        idorder: v4().slice(0,4),
         idkh,
         stt: "invalid",
         chitiet: newData,
