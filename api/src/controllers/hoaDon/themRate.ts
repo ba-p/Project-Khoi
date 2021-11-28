@@ -8,9 +8,9 @@ export const themRate = () => {
     "/",
     async (req: express.Request, res: express.Response) => {
       try {
-        const { idOrder, date, star } = req.body;
+        const { idOrder, today, value } = req.body;
         const sql = "call danhgia (?, ?, ?)";
-        connection.query(sql, [idOrder, date, star], (err, result) => {
+        connection.query(sql, [idOrder, today, value], (err, result) => {
           if (err) throw err;
           res.json({
             status: 200,
