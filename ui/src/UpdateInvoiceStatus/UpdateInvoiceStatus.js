@@ -13,6 +13,26 @@ const UpdateInvoiceStatus = () => {
       }
     })();
   }, []);
+
+  const updateStatus = (id, status) => {
+    setData(
+      data.map((item) => {
+        if (item.id === id) {
+          item.status = status;
+        }
+        return item;
+      })
+    );
+  };
+  const handleUpdate = async () => {
+    const response = await axios.post(
+      "http://localhost:8080/api/updatestatus",
+      { data }
+    );
+    if (response.data) {
+      alert("Cập nhật thành công");
+    }
+  };
   return (
     <div>
       <div className={style.title}>Cập nhật trạng thái hóa đơn</div>
@@ -25,14 +45,22 @@ const UpdateInvoiceStatus = () => {
           <th>{"       "}</th>
         </tr>
         {data.map((item, index) => {
-          return <BillItem item={item} key={index} />;
+          return (
+            <BillItem item={item} key={index} updateStatus={updateStatus} />
+          );
         })}
       </table>
       <div className={style.footer}>
         <button style={{ backgroundColor: "var(--cl2)", color: "white" }}>
           Trở về
         </button>
-        <button style={{ backgroundColor: "var(--cl1)" }}>Cập nhật</button>
+
+        <button
+          onClick={handleUpdate}
+          style={{ backgroundColor: "var(--cl1)", display: "block" }}
+        >
+          Cập nhật
+        </button>
       </div>
     </div>
   );
