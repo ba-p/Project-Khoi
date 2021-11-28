@@ -2,26 +2,32 @@ import "./page1.css";
 import Food from "../images/food.png";
 import "antd/dist/antd.css";
 import { Rate } from "antd";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { v4 } from "uuid";
-import axios from 'axios'
+import axios from "axios";
 
 const Page1 = () => {
   let location = useLocation().pathname;
   let isPayPage = location.includes("page4");
 
+  const navigate = useNavigate();
+
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [disableRate, setDisableRate] = useState(0)
   const handleAddCustomer = async () => {
-      const id = v4()
-      const rs = await axios.post('http://localhost:8080/api/taotaikhoan', {
-          id,
-          name,
-          phone
-      })
-      console.log(`rs`, rs)
+    const id = v4();
+    const rs = await axios.post("http://localhost:8080/api/taotaikhoan", {
+      id,
+      name,
+      phone,
+    });
+    navigate("/page2", {
+      state: {
+        idKh: id,
+      },
+    });
   };
   const handleRate = async (value) => {
     let today = new Date();
@@ -47,28 +53,25 @@ const Page1 = () => {
               ? "Đặt đơn hàng tại đây!"
               : "Vui lòng đến quầy thanh toán!"}
           </h1>
-          <form style={{ width: "100%", display: "block" }}>
-            <input
-              hidden={isPayPage}
-              placeholder="Tên của bạn"
-              className="cl1 page1-input"
-              type="text"
-              onChange={(e) => setName(e.target.value)}
-            />
-            <br />
-            <input
-              hidden={isPayPage}
-              placeholder="Số điện thoại"
-              className="cl1 page1-input"
-              type="text"
-              onChange={(e) => setPhone(e.target.value)}
-            />
-            <Link to="/page2">
-              <button onClick={handleAddCustomer} className="bg2 page1-button">
-                Tiếp theo
-              </button>
-            </Link>
-          </form>
+          <input
+            hidden={isPayPage}
+            placeholder="Tên của bạn"
+            className="cl1 page1-input"
+            type="text"
+            onChange={(e) => setName(e.target.value)}
+          />
+          <br />
+          <input
+            hidden={isPayPage}
+            placeholder="Số điện thoại"
+            className="cl1 page1-input"
+            type="text"
+            onChange={(e) => setPhone(e.target.value)}
+          />
+
+          <button onClick={handleAddCustomer} className="bg2 page1-button">
+            Tiếp theo
+          </button>
         </div>
         {isPayPage && (
           <>

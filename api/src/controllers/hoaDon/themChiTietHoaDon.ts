@@ -2,8 +2,8 @@ import express from "express";
 import { connection } from "../../database/mysql";
 
 type pchiTiet = {
-  id: string,
-  sl: number
+  id: string;
+  sl: number;
 };
 const router = express.Router();
 export const themHoaDon = async (
@@ -17,31 +17,29 @@ export const themHoaDon = async (
   const sql1 = "call themDetail (?,?,?)";
   try {
     const rs = await new Promise((resolve, reject) => {
-      connection.query(
-        sql,
-        [idorder, idkh, idvoucher, stt],
-        (err) => {
-          if (err) reject(err);
-          resolve(true);
-        }
-      );
+      connection.query(sql, [idorder, idkh, idvoucher, stt], (err) => {
+        if (err) reject(err);
+        resolve(true);
+      });
     });
     if (rs) {
-      const rs1 = await new Promise((resolve, reject) => {
-        chiTiet.map((pchiTiet) =>
-        connection.query(
-          sql1,
-          [pchiTiet.id, pchiTiet.sl],
-          (err) => {
-            if (err) reject(err);
-            resolve(true);
-          })
-        );
-      });
-          if(rs1){
-            return true;
-          }
-        }
+      const rs1 = Promise.all(
+        chiTiet.map((pchiTiet) => {
+          return new Promise((resolve, reject) => {
+            connection.query(
+              sql1,
+              [pchiTiet.id, pchiTiet.sl, idorder],
+              (err) => {
+                if (err) reject(err);
+                return true;
+              }
+            );
+          });
+        })
+      );
+        
+    }
+
     return false;
   } catch (error) {
     return false;
@@ -53,22 +51,11 @@ export const themChiTietHoaDon = () => {
     "/",
     async (req: express.Request, res: express.Response) => {
       try {
-        const {
-          idorder,
-          idkh,
-          idvoucher,
-          stt,
-          chiTiet
-        } = req.body;
-        const status = themHoaDon(
-          idorder,
-          idkh,
-          idvoucher,
-          stt,
-          chiTiet
-        );
+        const { idorder, idkh, idvoucher, stt, chiTiet } = req.body;
+        const status = themHoaDon(idorder, idkh, idvoucher, stt, chiTiet);
 
         status.then((result) => {
+          console.log(`result`, result)
           if (result) {
             res.json({
               status: 200,
