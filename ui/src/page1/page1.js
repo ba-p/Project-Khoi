@@ -13,7 +13,7 @@ const Page1 = () => {
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-
+  const [disableRate, setDisableRate] = useState(0)
   const handleAddCustomer = async () => {
       const id = v4()
       const rs = await axios.post('http://localhost:8080/api/taotaikhoan', {
@@ -23,6 +23,18 @@ const Page1 = () => {
       })
       console.log(`rs`, rs)
   };
+  const handleRate = async (value) => {
+    let today = new Date();
+    let idOrder = "tmp1";
+    const rs = await axios.post('http://localhost:8080/api/danhgia', {
+      idOrder,
+      today,
+      value
+    })
+    alert("Đánh giá thành công")
+    setDisableRate(1);
+
+  }
   return (
     <div className="page1">
       <Link hidden={isPayPage} to="/AdminPage" className="admin-button">
@@ -70,7 +82,7 @@ const Page1 = () => {
             >
               Đánh giá đơn hàng
             </span>
-            <Rate defaultValue={5} />
+            <Rate defaultValue={5} onChange={handleRate} disabled={disableRate} />
           </>
         )}
       </div>
