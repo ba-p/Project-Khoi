@@ -13,7 +13,7 @@ export const checkVoucher = () => {
         connection.query(sql, [idVoucher], (err, result) => {
           if (err) throw err;
           let checked = false;
-          if (result[0].toLowerCase() === "valid") {
+          if (result[0][0].CSTATUS.toLowerCase() === "valid") {
             checked = true;
           }
           res.json({

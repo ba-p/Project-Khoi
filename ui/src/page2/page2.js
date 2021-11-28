@@ -34,21 +34,25 @@ const Page2 = () => {
   }, []);
 
   const handlePrice = (price) => {
-    if (price > 0) {
-      setTotalPrice(totalPrice + price);
+    let totalPriceTmp = 0;
+    for (let i = 0;i<data.length;i++){
+      let price = parseInt(data[i].gia) * data[i].amount;
+      totalPriceTmp+=price;
     }
+    setTotalPrice(totalPriceTmp);
   };
 
   const setAmount = (id, newAmount) => {
     setData(
       data.map((item) => {
         if (item.id === id) {
-          return { ...item, amount: newAmount };
+          return { ...item, amount: Math.max(newAmount,0) };
         }
         return item;
       })
     );
   };
+  console.log("data: ",data);
   return (
     <div>
       <div className="header bg1 cl1">
