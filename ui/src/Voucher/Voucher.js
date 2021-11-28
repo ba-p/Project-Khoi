@@ -26,7 +26,7 @@ const Voucher = () => {
           <th>{"       "}</th>
         </tr>
         {data.map((item, index) => {
-          return <thongTin item={item} key={index} />;
+          return <InVoucher item={item} key={index} />;
         })}
       </table>
       <div className={style.footer}>
