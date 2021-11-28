@@ -7,11 +7,11 @@ const FoodItem = ({item}) => {
     return ( 
         <tr>
             {/* {col1==='normal'? */}
-            <td onDoubleClick={()=>{alert("Double click")}}>{item.idmonan}</td>
+            <td onDoubleClick={()=>{alert("Double click")}}>{item.id}</td>
             {/* <input>{item.idmonan}</input> */}
             {/* } */}
             
-            <td>{item.tenmon}</td>
+            <td>{item.tenMon}</td>
             <td>{item.gia}</td>
         </tr>
      );
