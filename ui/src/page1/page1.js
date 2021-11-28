@@ -70,7 +70,7 @@ const Page1 = () => {
           />
 
           <button onClick={handleAddCustomer} className="bg2 page1-button">
-            Tiếp theo
+            {isPayPage?"Đơn hàng khác":"Tiếp theo"}
           </button>
         </div>
         {isPayPage && (

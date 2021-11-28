@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import style from "./style.module.css";
 import axios from "axios";
-import { ThongTin } from "./ThongTin";
+import { ThongTin } from "./ThongTin.js";
 
 const CustomerInforamtion = () => {
   const [data, setData] = useState([]);
