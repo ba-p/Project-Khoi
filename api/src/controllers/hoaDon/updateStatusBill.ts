@@ -15,7 +15,6 @@ export const updateStatusBill = () => {
       try {
         const { data }: { data: Body[] } = req.body;
         const sql = "call updatestatus (?, ?)";
-        console.log(`data`, data);
         data.map((item) => {
           connection.query(sql, [item.id, item.status], (err, result) => {
             if (err) throw err;
