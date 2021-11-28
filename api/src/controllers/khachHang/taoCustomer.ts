@@ -10,7 +10,7 @@ export const taoCustomer = () => {
       try {
         const { id,name, phone } = req.body;
         const sql = "call TAOTAIKHOAN (?,?,?)";
-        connection.query(sql, [id,name, phone], (err, result) => {
+        connection.query(sql, [id, name, phone], (err, result) => {
           if (err) throw err;
           res.json({
             status: 200,

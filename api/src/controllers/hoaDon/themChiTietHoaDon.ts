@@ -15,8 +15,9 @@ export const themHoaDon = async (
 ) => {
   const sql = "call themHoaDon (?,?,?,?)";
   const sql1 = "call themDetail (?,?,?)";
-  const sql2 = "call themLanDat (?)"
+  const sql2 = "call themLanDat (?)";
   const sql3 = "call tinhTien(?,?)";
+  const sql4 = "call congDiem(?)";
   try {
     const rs = connection.query(sql, [idorder, idkh, idvoucher, stt], (err) => {
       if (err) throw err;
@@ -30,10 +31,14 @@ export const themHoaDon = async (
     const rs2 = connection.query(sql2, [ idkh ], (err) => {
       if (err) throw err;
     });
-    const rs3 = connection.query(sql3, [ idorder, idvoucher ], (err) => {
+    const rs3 = connection.query(sql4, [ idkh ], (err) => {
       if (err) throw err;
     });
-    if (rs3) {
+    const rs4 = connection.query(sql3, [ idorder, idvoucher ], (err) => {
+      if (err) throw err;
+    });
+    
+    if (rs4) {
       return true;
     }
 
@@ -50,7 +55,12 @@ export const themChiTietHoaDon = () => {
       try {
         const { idorder, idkh, idvoucher, stt, chitiet } = req.body;
         const status = themHoaDon(idorder, idkh, idvoucher, stt, chitiet);
-
+        // const sql = "call congdiem (?)"; //idkh
+        // connection.query(sql, [idkh], (err) => {
+        //   if (err) throw err;
+        // })
+        // const sql2 = 'select '
+        
         status.then((result) => {
           console.log(`result`, result);
           if (result) {
