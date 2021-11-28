@@ -15,6 +15,7 @@ import { taoCustomer } from '../controllers/khachHang/taoCustomer';
 import { themRate } from '../controllers/hoaDon/themRate';
 import { updateStatusBill } from '../controllers/hoaDon/updateStatusBill';
 import { xemHoaDon } from '../controllers/hoaDon/xemHoaDon';
+import { xemMonAn } from '../controllers/monAn/xemMonAn';
 
 const app = express();
 
@@ -23,6 +24,7 @@ export const routes = () => {
 // select
   app.use("/api/xemThongTin", xemThongTin());
   app.use("/api/xemhoadon", xemHoaDon());
+  app.use("/api/xemMonAn", xemMonAn());
 // insert
   app.use("/api/themMonAn", themMonAn());
   app.use("/api/themChiTietHoaDon", themChiTietHoaDon());
