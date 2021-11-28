@@ -7,12 +7,12 @@ const FoodItem = ({item}) => {
     return ( 
         <tr>
             {/* {col1==='normal'? */}
-            <td onDoubleClick={()=>{alert("Double click")}}>{item.id}</td>
+            <td style={{verticalAlign: 'middle', textAlign: 'center'}} onDoubleClick={()=>{alert("Double click")}}>{item.id}</td>
             {/* <input>{item.idmonan}</input> */}
             {/* } */}
             
-            <td>{item.tenMon}</td>
-            <td>{item.gia}</td>
+            <td style={{verticalAlign: 'middle', textAlign: 'center'}}>{item.tenMon}</td>
+            <td style={{verticalAlign: 'middle', textAlign: 'center'}}>{item.gia}</td>
         </tr>
      );
 }
