@@ -9,8 +9,8 @@ export const Page2Item = (props) => {
   }, [item.amount]);
 
   return (
-    <tr>
-      <td style={{ paddingBottom: "20px" }}>
+    <tr className="menu-row">
+      <td>
         <div className="table-row">
           <div className="bg3 row-box" style={{ width: "100%" }}>
             {item.tenMon}
@@ -18,7 +18,7 @@ export const Page2Item = (props) => {
         </div>
       </td>
 
-      <td style={{ display: "flex", alignItems: "center" }}>
+      <td>
         <div className="table-row">
           <div
             style={{ cursor: "pointer" }}
@@ -40,11 +40,12 @@ export const Page2Item = (props) => {
 
       <td>
         <div
-          className="table-row"
+          className="table-row bg3"
           style={{
             display: "flex",
             alignItems: "center",
             justifyItems: "center",
+            borderRadius: "50px"
           }}
         >
           <div>{item.gia * item.amount}</div>

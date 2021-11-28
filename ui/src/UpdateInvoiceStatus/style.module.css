@@ -9,10 +9,8 @@
     padding: 10px 0;
 }
 .footer{
-    position: fixed;
-    bottom: 60px;
     display: flex;
-    justify-content: end;
+    justify-content: center;
     width: 100%;
     padding: 0 40px;
 }
@@ -22,9 +20,13 @@
     border: none;
     box-shadow: 5px 5px 5px rgb(197, 197, 197);
     font-weight: bold;
+    color: var(--cl2);
 }
 .table{
     width: 80%;
-    margin: 10px auto;
-
+    margin: 10px auto;   
+    color: var(--cl2); 
+}
+.table th{
+    border-left: 2px solid white;
 }

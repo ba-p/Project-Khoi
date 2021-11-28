@@ -23,7 +23,6 @@ const Voucher = () => {
         <tr style={{ backgroundColor: "var(--cl3)", height: "30px" }}>
           <th width="50%">ID VOUCHER</th>
           <th>GIẢM</th>
-          <th>{"       "}</th>
         </tr>
         {data.map((item, index) => {
           return <InVoucher item={item} key={index} />;

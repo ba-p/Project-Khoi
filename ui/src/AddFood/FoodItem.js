@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import {BsTrash} from "react-icons/bs"
 const FoodItem = ({ item, handleUpdate, handleDelete, handleChangeName, handleChangePrice, handleAdd }) => {
     const [isUpdate2, setisUpdate2] = useState(false)
     const [isUpdate3, setisUpdate3] = useState(false)
@@ -14,7 +14,7 @@ const FoodItem = ({ item, handleUpdate, handleDelete, handleChangeName, handleCh
         }
     }
     return (
-        <tr align="center">
+        <tr style={{backgroundColor: "var(--cl1)"}} align="center">
             <td>{item.id}</td>
             {isUpdate2 ?
                 <input
@@ -33,7 +33,7 @@ const FoodItem = ({ item, handleUpdate, handleDelete, handleChangeName, handleCh
                 /> :
                 <td onDoubleClick={() => { setisUpdate3(!isUpdate3) }}>{item.gia}</td>}
             <td>
-                <button onClick={() => { handleDelete(item.id) }}>Xóa</button>
+                <BsTrash style={{cursor: "pointer"}} size={25} onClick={() => { handleDelete(item.id) }}/>
             </td>
         </tr>
     );

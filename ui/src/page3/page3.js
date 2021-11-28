@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import style from "./style.module.css";
+import jojo from "../images/jojo.png"
 const Page3 = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -13,12 +14,12 @@ const Page3 = () => {
   );
   const [voucher, setVoucher] = useState("");
   const checkVoucher = async (id) => {
-    let res = await axios.post("http://localhost:8080/api/checkvoucher", {idVoucher: id});
+    let res = await axios.post("http://localhost:8080/api/checkvoucher", { idVoucher: id });
     return res;
   }
   const handleSubmit = async () => {
     let checkVoucherRes = await checkVoucher(voucher)
-    if (!checkVoucherRes.data.checked && voucher!=="") {
+    if (!checkVoucherRes.data.checked && voucher !== "") {
       alert("Voucher không hợp lệ");
       return;
     }
@@ -49,45 +50,50 @@ const Page3 = () => {
     })
 
   };
-  console.log(voucher);
   return (
     <div>
-      <h1 style={{ marginLeft: "40px" }}>Thanh toán</h1>
+      <div style={{padding: "0 40px", display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+        <span style={{fontSize: "35px", fontWeight: "500"}}>Thanh toán</span>
+        <img height="70" src={jojo} alt="ten quan" />
+      </div>
       <div className={style.content}>
-        <table className={style.table}>
-          <thead
-            className="cl1"
-            style={{
-              fontSize: "20px",
-              textAlign: "center",
-              fontWeight: "bold",
-            }}
-          >
-            <tr>
-              <td>Món ăn</td>
-              <td>Số lượng</td>
-              <td>Thành tiền</td>
-            </tr>
-          </thead>
+        <div className={style.tableBox}>
 
-          <tbody>
-            {data.map((item, index) => {
-              return (
-                <tr>
-                  <td style={{ textAlign: "center", verticalAlign: "middle" }}>
-                    {item.tenMon}
-                  </td>
-                  <td style={{ textAlign: "center", verticalAlign: "middle" }}>
-                    {item.amount}
-                  </td>
-                  <td style={{ textAlign: "center", verticalAlign: "middle" }}>
-                    {parseInt(item.gia) * item.amount}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+          <table className={style.table}>
+            <thead
+              className="cl1"
+              style={{
+                fontSize: "20px",
+                textAlign: "center",
+                fontWeight: "bold",
+              }}
+            >
+              <tr>
+                <td>Món ăn</td>
+                <td>Số lượng</td>
+                <td>Thành tiền</td>
+              </tr>
+            </thead>
+
+            <tbody style={{fontSize: "20px"}}>
+              {data.map((item, index) => {
+                return (
+                  <tr>
+                    <td style={{ textAlign: "center", verticalAlign: "middle" }}>
+                      {item.tenMon}
+                    </td>
+                    <td style={{ textAlign: "center", verticalAlign: "middle" }}>
+                      {item.amount}
+                    </td>
+                    <td style={{ textAlign: "center", verticalAlign: "middle" }}>
+                      {parseInt(item.gia) * item.amount}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
         <div className={style.line}></div>
         <div className={style.footer}>
           <div>

@@ -1,8 +1,9 @@
 .header{
     height: 15vh;
-    padding-left: 5%;
+    padding: 0 5%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 .page2-table{
     width: 100%; 
@@ -51,4 +52,10 @@
     border: none;
     font-size: 20px;
     box-shadow: 7px 7px 10px #a8a8a8;
+}
+.menu-row{
+    height: 70px;
+}
+.menu-row td{
+    vertical-align: middle;
 }

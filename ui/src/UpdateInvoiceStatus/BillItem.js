@@ -21,17 +21,16 @@ export const BillItem = (props) => {
         }
     }
   return (
-    <tr style={{ backgroundColor: "#fff", height: "30px" }}>
+    <tr style={{ backgroundColor: "var(--cl1)", height: "30px" }}>
       <th>{item?.id}</th>
       <th>{item.tenkh}</th>
       <th>{item.tong}</th>
       <th>
-      <select onChange={changeStatus}>
-          <option >{status[0]}</option>
-          <option >{status[1]}</option>
+      <select style={{backgroundColor: item.status==="valid"?"#8cff7d":"#d9d9d9"}} onChange={changeStatus}>
+          <option style={{backgroundColor: "white"}}>{status[0]}</option>
+          <option style={{backgroundColor: "white"}}>{status[1]}</option>
       </select>
       </th>
-      <th>{"       "}</th>
     </tr>
   );
 };

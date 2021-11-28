@@ -25,7 +25,6 @@ const CustomerInforamtion = () => {
             <th>LẦN ĐẶT</th>
             <th width="10%">ĐIỂM</th>
             <th>HẠNG</th>
-            <th>{"       "}</th>
           </tr>
           {data.map((item, index) => {
             return <ThongTin item={item} key={index} />;

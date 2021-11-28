@@ -49,9 +49,8 @@ const Page1 = () => {
       <div className="page1-left">
         <div className="page1-box">
           <h1 style={{ color: "#060461", fontSize: "3em", textAlign: "left" }}>
-            {isPayPage === 1
-              ? "Đặt đơn hàng tại đây!"
-              : "Vui lòng đến quầy thanh toán!"}
+            {isPayPage
+              ? "Vui lòng đến quầy thanh toán!" : "Đặt đơn hàng tại đây!"}
           </h1>
           <input
             hidden={isPayPage}
@@ -68,10 +67,15 @@ const Page1 = () => {
             type="text"
             onChange={(e) => setPhone(e.target.value)}
           />
-
-          <button onClick={handleAddCustomer} className="bg2 page1-button">
-            {isPayPage?"Đơn hàng khác":"Tiếp theo"}
-          </button>
+          {isPayPage ?
+            <button onClick={()=>{navigate("/")}} className="bg2 page1-button">
+              Đơn hàng khác
+            </button>
+            :
+            <button onClick={handleAddCustomer} className="bg2 page1-button">
+              Tiếp theo
+            </button>
+          }
         </div>
         {isPayPage && (
           <>

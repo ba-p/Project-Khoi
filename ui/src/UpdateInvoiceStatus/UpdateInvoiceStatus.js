@@ -43,7 +43,6 @@ const UpdateInvoiceStatus = () => {
           <th>KHÁCH HÀNG</th>
           <th>TỔNG TIỀN</th>
           <th>TRẠNG THÁI</th>
-          <th>{"       "}</th>
         </tr>
         {data.map((item, index) => {
           return (
@@ -52,12 +51,6 @@ const UpdateInvoiceStatus = () => {
         })}
       </table>
       <div className={style.footer}>
-        <Link to='/AdminPage'>
-        <button style={{ backgroundColor: "var(--cl2)", color: "white", marginRight: '20px' }}>
-          Trở về
-        </button>
-        </Link>
-
         <button
           onClick={handleUpdate}
           style={{ backgroundColor: "var(--cl1)", display: "block" }}

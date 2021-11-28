@@ -26,5 +26,9 @@
 .table{
     width: 90%;
     margin: 10px auto;
-
+    font-size: 20px;
+    color: var(--cl2);
+}
+.table th{
+    border-left: 2px solid white;
 }

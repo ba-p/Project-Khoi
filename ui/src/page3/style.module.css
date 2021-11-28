@@ -1,11 +1,14 @@
 .content{
-    min-height: 70vh;
+    min-height: 80vh;
     width: 100%;
     background-color: var(--cl3);
 }
+.tableBox{
+    min-height: 65vh;
+    padding-left: 60px;
+}
 .table{
-    width: 80%;
-    margin: 20px auto;
+    width: 60%;
 }
 .discount{
     width: 70%;
@@ -26,7 +29,7 @@
 .footer{
     display: flex;
     justify-content: space-between;
-    margin-top: 30px;
+    margin: 10px 0;
     padding: 0 5%;
     font-size: 20px;
     color: var(--cl2);
@@ -39,7 +42,7 @@
     padding: 0 10px;
 }
 .orderBtn{
-    margin: 20px 0 0 80%;
+    margin: 10px 0 0 80%;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Page2Item } from "./page2Item";
 import { v4 } from "uuid";
+import jojo from "../images/jojo.png"
 const Page2 = () => {
   const [data, setData] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -59,6 +60,7 @@ const Page2 = () => {
         <h1 style={{ margin: 0, lineHeight: "100%", fontSize: "40px" }}>
           Menu
         </h1>
+        <img height="80" src={jojo} alt="Ten quan"/>
       </div>
 
       <div style={{ minHeight: "60vh" }}>
@@ -108,6 +110,7 @@ const Page2 = () => {
           Thanh toán
         </button>
       </div>
+      <br/>
     </div>
   );
 };
