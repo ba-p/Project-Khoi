@@ -4,15 +4,15 @@ import { connection } from "../../database/mysql";
 const router = express.Router();
 
 export const  xemThongTin = () => {
-  return router.post(
+  return router.get(
     "/",
     async (req: express.Request, res: express.Response) => {
       try {
         const { idkh } = req.body;
-        const sql = "call xemThongTin(?)";
-        connection.query(sql, [idkh], function (err, results) {
+        const sql = "select * from khachhang";
+        connection.query(sql, function (err, results) {
           if (err) throw err;
-          res.json(results.affectedRows);
+          res.json(results);
         });
 
         // sql

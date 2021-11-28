@@ -12,7 +12,7 @@ export const xemMonAn = () => {
         const sql = "select tenMon, gia from monAn";
         connection.query(sql, (err, result) => {
           if (err) throw err;
-          res.json(result[0]);
+          res.json(result);
         });
       } catch (error) {
         console.log(error);
